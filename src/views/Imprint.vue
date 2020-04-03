@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    Content
+  <div>
+    Imprint
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 // @ is an alias to /src
 
 export default {
-  name: 'Home',
+  name: 'Imprint',
   components: {
   }
 }
