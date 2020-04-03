@@ -89,7 +89,7 @@ const darkTheme = new Theme()
     background: '#1f1f1f',
     'on-background': '#dddddd',
 
-    brand: '#4271ae',
+    brand: '#3949ab',
     'on-brand': '#dddddd',
 
     main: '#333333',
