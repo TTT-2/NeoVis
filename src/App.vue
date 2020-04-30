@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="bg-background text-on-background min-h-screen flex flex-col">
+    <notifications position="bottom left" class="m-2" />
     <div class="flex items-center justify-between px-4 py-3 bg-brand">
       <div>
         <router-link to="/" class="mx-1 text-2xl flex items-center text-on-brand">
@@ -16,9 +17,10 @@
         </a>
       </div>
     </div>
-
-    <router-view class="flex-grow"/>
-
+    <div id="inner" class="flex flex-col md:flex-row flex-grow">
+      <neo-sidebar class="bg-main text-on-main"/>
+      <router-view class="flex-grow p-4"/>
+    </div>
     <footer class="flex-0 flex h-24 justify-around bg-brand p-2 text-on-brand items-center">
       <div>
         <router-link to="/imprint">Imprint</router-link>
@@ -33,9 +35,16 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import NeoSidebar from '@/components/Sidebar.vue'
+import Notifications from 'vue-notification'
+
+Vue.use(Notifications)
 
 export default Vue.extend({
   name: 'app',
+  components: {
+    NeoSidebar
+  },
   data: () => ({
     themes: ['light', 'dark']
   }),
@@ -50,3 +59,17 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss">
+  .bg-realm-client {
+    background-color: #d3a10c;
+  }
+
+  .bg-realm-server {
+    background-color: #14b0f8;
+  }
+
+  .bg-realm-shared {
+    background-image: linear-gradient(45deg, #d3a10c 50%, #14b0f8 50.001%);
+  }
+</style>

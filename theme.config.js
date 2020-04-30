@@ -33,8 +33,10 @@ const lightTheme = new Theme()
     background: '#f4f4f4',
     'on-background': '#585851',
 
-    main: '#eeeeee',
+    main: '#bbb',
     'on-main': '#333333',
+
+    'main-secondary': '#939495',
 
     // Event colors
     'error-primary': '#b00020',
@@ -93,7 +95,9 @@ const darkTheme = new Theme()
     'on-brand': '#dddddd',
 
     main: '#333333',
-    'on-main': '#dddddd'
+    'on-main': '#dddddd',
+
+    'main-secondary': '#4a4a4a'
   })
 
   // Arbitrary variants
