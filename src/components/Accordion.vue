@@ -22,7 +22,7 @@ export default class Accordion extends Vue {
 
   private toggle (): void {
     this.opened = !this.opened
-    this.$emit('updateState', this.opened)
+    this.$emit('update-state', this.opened)
   }
 }
 </script>

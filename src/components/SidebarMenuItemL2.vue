@@ -1,6 +1,6 @@
 <template>
   <div class="pl-3 border-l-8 border-brand pr-4">
-    <neo-accordion v-if="element.functions !== undefined" @updateState="opened = $event">
+    <neo-accordion v-if="element.functions !== undefined" @update-state="opened = $event">
       <span slot="title" class="select-none hover:text-on-main-high-emphasis">
         <font-awesome-icon :icon="this.opened ? 'angle-up' : 'angle-down'" class="mr-2" ></font-awesome-icon>
         {{ element.name }}
@@ -28,7 +28,7 @@ import NeoRealmInfoRouterLink from '@/components/RealmInfoRouterLink.vue'
 })
 export default class SidebarMenuItemL1 extends Vue {
   @Prop({ default: '' }) name: string;
-  @Prop() element: object;
+  @Prop() element: Record<string, unknown>;
 
   opened = false;
 }

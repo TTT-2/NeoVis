@@ -26,7 +26,7 @@ export default class Sidebar extends Vue {
 
   content = {}
 
-  mounted () {
+  mounted (): void {
     axios.get('/data/main.json')
       .then(response => {
         this.content = response.data
