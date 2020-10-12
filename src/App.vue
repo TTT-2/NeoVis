@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bg-background text-on-background min-h-screen flex flex-col">
+  <div id="app" class="bg-background text-on-background h-screen flex flex-col">
     <notifications position="bottom left" class="m-2" />
     <div class="flex items-center justify-between px-4 py-3 bg-brand">
       <div>
@@ -17,7 +17,7 @@
         </a>
       </div>
     </div>
-    <div id="inner" class="flex flex-col md:flex-row flex-grow">
+    <div id="inner" class="flex flex-col md:flex-row flex-grow md:h-full md:overflow-hidden">
       <neo-sidebar class="bg-main text-on-main"/>
       <router-view class="flex-grow p-4"/>
     </div>

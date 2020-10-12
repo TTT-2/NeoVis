@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    Content
+    Select an element on the left!
   </div>
 </template>
 
