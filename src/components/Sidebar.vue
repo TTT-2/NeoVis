@@ -1,9 +1,9 @@
 <template>
   <div class="py-2 w-full md:w-auto flex-none text-lg overflow-y-scroll">
-    <neo-menu-item-l1 icon="book" title="Libraries" :elements="this.content.libraries"></neo-menu-item-l1>
-    <neo-menu-item-l1 icon="sitemap" title="Classes" :elements="this.content.classes"></neo-menu-item-l1>
-    <neo-menu-item-l1 icon="link" title="Hooks" :elements="this.content.hooks"></neo-menu-item-l1>
-    <neo-menu-item-l1 icon="wrench" title="Convars" :elements="this.content.convars"></neo-menu-item-l1>
+    <neo-menu-item-l1 icon="book" title="Libraries" :elements="this.content.module"></neo-menu-item-l1>
+    <neo-menu-item-l1 icon="sitemap" title="Classes" :elements="this.content.class"></neo-menu-item-l1>
+    <neo-menu-item-l1 icon="link" title="Hooks" :elements="this.content.hook"></neo-menu-item-l1>
+    <neo-menu-item-l1 icon="wrench" title="Convars" :elements="this.content.createconvar"></neo-menu-item-l1>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default class Sidebar extends Vue {
   content = {}
 
   mounted (): void {
-    axios.get('/data/main.json')
+    axios.get('/data/overview.json')
       .then(response => {
         this.content = response.data
       })

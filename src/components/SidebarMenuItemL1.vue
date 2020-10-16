@@ -9,27 +9,32 @@
         {{ this.title }}
       </span>
     </span>
-    <neo-sidebar-menu-item-l2 slot="content" v-for="item in this.elements" :key="item.name" :element="item"></neo-sidebar-menu-item-l2>
+    <div slot="content">
+      <div v-for="(item, key) in this.elements" :key="key">
+        <neo-sidebar-menu-item-l2 v-if="Array.isArray(item) == false" :element="item" :title="key"></neo-sidebar-menu-item-l2>
+        <neo-sidebar-menu-item-l3 v-else :elements="item" :title="key"></neo-sidebar-menu-item-l3>
+      </div>
+    </div>
   </neo-accordion>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import NeoAccordion from '@/components/Accordion.vue'
-import NeoRealmInfoRouterLink from '@/components/RealmInfoRouterLink.vue'
 import NeoSidebarMenuItemL2 from '@/components/SidebarMenuItemL2.vue'
+import NeoSidebarMenuItemL3 from '@/components/SidebarMenuItemL3.vue'
 
 @Component({
   components: {
     NeoAccordion,
     NeoSidebarMenuItemL2,
-    NeoRealmInfoRouterLink
+    NeoSidebarMenuItemL3
   }
 })
 export default class SidebarMenuItemL1 extends Vue {
-  @Prop({ default: '' }) icon: string;
-  @Prop({ default: '' }) title: string;
-  @Prop() elements: Record<string, unknown>;
+  @Prop({ default: 'link' }) icon: string;
+  @Prop({ default: 'UNTITLED' }) title: string;
+  @Prop({ default: {} }) elements: Array<Record<string, unknown>>|Record<string, unknown>;
 
   opened = false;
 }
