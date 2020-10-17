@@ -1,7 +1,7 @@
 <template>
-  <neo-accordion class="pl-3 border-l-8 border-brand pr-4" :title="title" @update-state="opened = $event">
+  <neo-accordion class="pl-3 border-l-8 border-brand pr-4" :title="objectName" @update-state="opened = $event">
     <div slot="content" class="ml-6">
-        <neo-sidebar-menu-item-l3 v-for="(section, name) in element.sections" :key="name" :elements="section.function" :title="name"></neo-sidebar-menu-item-l3>
+        <neo-sidebar-menu-item-l3 v-for="(section, name) in element.sections" :key="name" :elements="section.function" :objectName="objectName" :sectionName="name"></neo-sidebar-menu-item-l3>
     </div>
   </neo-accordion>
 </template>
@@ -21,7 +21,7 @@ import NeoRealmInfoRouterLink from '@/components/RealmInfoRouterLink.vue'
 })
 export default class SidebarMenuItemL2 extends Vue {
   @Prop() element: Record<string, unknown>;
-  @Prop({ default: 'UNTITLED' }) title: string;
+  @Prop({ default: 'untitled object' }) objectName: string;
 
   opened = false;
 }

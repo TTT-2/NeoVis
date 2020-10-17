@@ -11,8 +11,8 @@
     </span>
     <div slot="content">
       <div v-for="(item, key) in this.elements" :key="key">
-        <neo-sidebar-menu-item-l2 v-if="Array.isArray(item) == false" :element="item" :title="key"></neo-sidebar-menu-item-l2>
-        <neo-sidebar-menu-item-l3 v-else :elements="item" :title="key"></neo-sidebar-menu-item-l3>
+        <neo-sidebar-menu-item-l2 v-if="Array.isArray(item) == false" :element="item" :objectName="key"></neo-sidebar-menu-item-l2>
+        <neo-sidebar-menu-item-l3 v-else :elements="item" :sectionName="key"></neo-sidebar-menu-item-l3>
       </div>
     </div>
   </neo-accordion>
