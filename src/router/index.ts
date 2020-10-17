@@ -21,11 +21,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "imprint" */ '../views/Imprint.vue')
   },
   {
-    path: '/:objectName/:sectionName/:realm/:elementName',
+    path: '/:objectName/:sectionName/:realmName/:elementName',
     component: FunctionDescription
   },
   {
-    path: '/:sectionName/:realm/:elementName',
+    path: '/:sectionName/:realmName/:elementName',
     component: FunctionDescription
   },
   {

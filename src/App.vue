@@ -59,17 +59,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="scss">
-  .bg-realm-client {
-    background-color: #d3a10c;
-  }
-
-  .bg-realm-server {
-    background-color: #14b0f8;
-  }
-
-  .bg-realm-shared {
-    background-image: linear-gradient(45deg, #d3a10c 50%, #14b0f8 50.001%);
-  }
-</style>

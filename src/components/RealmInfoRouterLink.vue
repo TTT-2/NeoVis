@@ -1,36 +1,24 @@
 <template>
   <router-link :to="link" class="inline-block w-full">
-    <span :class="'inline-block w-3 h-3 mr-2 rounded-sm ' + realmColor"></span>
+    <neo-realm-indicator :realm="realm"></neo-realm-indicator>
     <slot></slot>
   </router-link>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import NeoRealmIndicator from '@/components/RealmIndicator.vue'
 
-enum Realm {
-  Client = 'client',
-  Server = 'server',
-  Shared = 'shared'
-}
-
-@Component
+@Component({
+  components: {
+    NeoRealmIndicator
+  }
+})
 export default class RealmInfoRouterLink extends Vue {
   @Prop({ default: '' }) object: string;
   @Prop({ default: '' }) section: string;
   @Prop({ default: '' }) element: string;
-  @Prop({ default: null }) realm: Realm;
-
-  get realmColor (): string {
-    switch (this.realm) {
-      case Realm.Client:
-        return 'bg-realm-client'
-      case Realm.Server:
-        return 'bg-realm-server'
-      default:
-        return 'bg-realm-shared'
-    }
-  }
+  @Prop({ default: '' }) realm: string;
 
   get link (): string {
     var lnk = '/'
