@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component()
+@Component
 export default class FunctionDescription extends Vue {
   content = { type: 'datastructure', subtype: 'function', name: 'TTT2NET:Get' }
 }

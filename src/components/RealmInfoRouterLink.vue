@@ -38,6 +38,7 @@ export default class RealmInfoRouterLink extends Vue {
     if (this.object !== '') lnk += this.object + '/'
 
     lnk += this.section + '/'
+    lnk += this.realm + '/'
     lnk += this.element
 
     return lnk
