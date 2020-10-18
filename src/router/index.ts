@@ -13,14 +13,6 @@ const routes = [
     component: Home
   },
   {
-    path: '/imprint',
-    name: 'Imprint',
-    // route level code-splitting
-    // this generates a separate chunk (imprint.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "imprint" */ '../views/Imprint.vue')
-  },
-  {
     path: '/:objectName/:sectionName/:realmName/:elementName',
     component: FunctionDescription
   },
