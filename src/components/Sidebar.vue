@@ -1,6 +1,6 @@
 <template>
 <neo-spinner :loading.sync="isLoading">
-  <div class="w-full md:w-auto flex-none text-lg overflow-y-auto">
+  <div class="h-full w-full md:w-auto flex-none text-lg overflow-y-auto">
     <div class="py-2">
       <neo-menu-item-l1 icon="book" title="Modules" :elements="this.content.module" :baseName="'module'"></neo-menu-item-l1>
       <neo-menu-item-l1 icon="sitemap" title="Classes" :elements="this.content.class" :baseName="'class'"></neo-menu-item-l1>

@@ -1,5 +1,4 @@
 <template>
-  <div>
     <transition name="component-fade" mode="out-in" appear>
       <div :key="'spinner'" v-if="syncedLoading" class="h-full flex justify-center flex-col items-center">
         <font-awesome-icon :icon="'spinner'" size="lg" class="transition-opacity m-2" spin></font-awesome-icon>
@@ -8,7 +7,6 @@
         <slot/>
       </div>
     </transition>
-  </div>
 </template>
 
 <script lang="ts">
