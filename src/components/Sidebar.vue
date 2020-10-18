@@ -1,9 +1,11 @@
 <template>
-  <div class="py-2 w-full md:w-auto flex-none text-lg overflow-y-scroll">
-    <neo-menu-item-l1 icon="book" title="Libraries" :elements="this.content.module"></neo-menu-item-l1>
-    <neo-menu-item-l1 icon="sitemap" title="Classes" :elements="this.content.class"></neo-menu-item-l1>
-    <neo-menu-item-l1 icon="link" title="Hooks" :elements="this.content.hook"></neo-menu-item-l1>
-    <neo-menu-item-l1 icon="wrench" title="Convars" :elements="this.content.createconvar"></neo-menu-item-l1>
+  <div class="w-full md:w-auto flex-none text-lg overflow-y-auto">
+    <div class="py-2">
+      <neo-menu-item-l1 icon="book" title="Modules" :elements="this.content.module"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="sitemap" title="Classes" :elements="this.content.class"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="link" title="Hooks" :elements="this.content.hook"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="wrench" title="Convars" :elements="this.content.createconvar"></neo-menu-item-l1>
+    </div>
   </div>
 </template>
 

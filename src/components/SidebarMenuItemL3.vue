@@ -1,6 +1,6 @@
 <template>
-  <neo-accordion :title="sectionName" class="pl-3 border-l-8 border-brand pr-4" @update-state="opened = $event">
-    <div slot="content" class="ml-6">
+  <neo-accordion :title="sectionName" @update-state="opened = $event">
+    <div slot="content">
       <div v-for="item in elements" :key="item.index">
         <neo-realm-info-router-link :realm="item.realm" :section="sectionName" :object="objectName" :element="item.name">{{ item.name }}</neo-realm-info-router-link>
       </div>

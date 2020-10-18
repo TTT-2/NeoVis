@@ -24,7 +24,7 @@ export default class FunctionDescription extends Vue {
       })
       .catch(reason => {
         this.$notify({
-          title: 'Could not fetch data for the sidebar',
+          title: 'Could not fetch data for the function',
           text: reason,
           type: 'error'
         })

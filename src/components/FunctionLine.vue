@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-main-secondary text-gray-100 px-4 p-2 inline-block rounded-md m-5 shadow-md">
+  <div class="bg-gray-400 dark:bg-gray-900 text-gray-800 dark:text-gray-100 px-4 p-2 inline-block rounded-md shadow-md w-full">
     <neo-realm-indicator :realm="realm"></neo-realm-indicator>
     {{ name }}
   </div>

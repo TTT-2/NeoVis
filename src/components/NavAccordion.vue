@@ -1,10 +1,12 @@
 <template>
-  <neo-accordion @update-state="opened = $event">
-    <span slot="title" class="select-none hover:text-on-main-high-emphasis">
-      <font-awesome-icon :icon="this.opened ? 'angle-up' : 'angle-down'" class="mr-2" ></font-awesome-icon>
+  <neo-accordion @update-state="opened = $event" class="border-l-8 border-gray-500 dark:border-gray-800">
+    <span slot="title" class="inline-block select-none w-full h-full hover:text-gray-700 dark:hover:text-gray-400 shadow-xs border-gray-400">
+      <font-awesome-icon :icon="this.opened ? 'angle-up' : 'angle-down'" class="mx-2" ></font-awesome-icon>
       {{ title }}
     </span>
-    <slot name="content" slot="content" class="ml-6" />
+    <div class="ml-8" slot="content">
+      <slot name="content" />
+    </div>
   </neo-accordion>
 </template>
 

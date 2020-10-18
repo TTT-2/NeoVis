@@ -1,8 +1,8 @@
 <template>
   <neo-accordion @update-state="opened = $event">
     <span slot="title" :class="[
-      'inline-flex items-center text-lg font-bold select-none w-full pl-4 py-1 hover:bg-brand hover:text-on-brand',
-      this.opened ? 'bg-brand text-on-brand' : 'bg-main-secondary'
+      'inline-flex items-center text-lg font-bold select-none w-full pl-4 py-1 hover:text-gray-800 dark:hover:text-gray-400',
+      this.opened ? 'bg-gray-400 text-gray-900 dark:bg-gray-700 dark:text-gray-100' : ''
       ]">
       <font-awesome-icon :icon="this.icon" size="sm" class="mr-2"></font-awesome-icon>
       <span>
@@ -34,7 +34,7 @@ import NeoSidebarMenuItemL3 from '@/components/SidebarMenuItemL3.vue'
 export default class SidebarMenuItemL1 extends Vue {
   @Prop({ default: 'link' }) icon: string;
   @Prop({ default: 'UNTITLED' }) title: string;
-  @Prop({ default: {} }) elements: Array<Record<string, unknown>>|Record<string, unknown>;
+  @Prop() elements: Array<Record<string, unknown>>|Record<string, unknown>;
 
   opened = false;
 }

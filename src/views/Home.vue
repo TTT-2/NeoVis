@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     Select an element on the left!
   </div>
 </template>

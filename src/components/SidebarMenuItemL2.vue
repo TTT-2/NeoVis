@@ -1,6 +1,6 @@
 <template>
-  <neo-accordion class="pl-3 border-l-8 border-brand pr-4" :title="objectName" @update-state="opened = $event">
-    <div slot="content" class="ml-6">
+  <neo-accordion :title="objectName" @update-state="opened = $event">
+    <div slot="content">
         <neo-sidebar-menu-item-l3 v-for="(section, name) in element.sections" :key="name" :elements="section.function" :objectName="objectName" :sectionName="name"></neo-sidebar-menu-item-l3>
     </div>
   </neo-accordion>
