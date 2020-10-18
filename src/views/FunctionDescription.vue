@@ -38,7 +38,7 @@ export default class FunctionDescription extends Vue {
 
     lnk += this.$route.params.sectionName + '/'
     lnk += this.$route.params.realmName + '/'
-    lnk += this.$route.params.elementName
+    lnk += this.$route.params.elementName.replace(':', '..')
 
     return lnk
   }
