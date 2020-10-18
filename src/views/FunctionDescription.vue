@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import axios from 'axios'
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
 import NeoFunctionLine from '@/components/FunctionLine.vue'
 
 @Component({
@@ -18,6 +18,11 @@ export default class FunctionDescription extends Vue {
   content = {}
 
   mounted (): void {
+    this.fetchData()
+  }
+
+  @Watch('$route')
+  fetchData (): void {
     axios.get('/data/' + this.dataLink + '.json')
       .then(response => {
         this.content = response.data
