@@ -1,7 +1,7 @@
 <template>
   <neo-accordion :title="sectionName" @update-state="opened = $event">
     <div slot="content">
-      <div v-for="item in elements" :key="item.index">
+      <div v-for="(item, index) in elements" :key="index">
         <neo-realm-info-router-link :realm="item.realm" :section="sectionName" :object="objectName" :element="item.name">{{ item.name }}</neo-realm-info-router-link>
       </div>
     </div>

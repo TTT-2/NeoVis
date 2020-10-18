@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-400 dark:bg-gray-900 text-gray-800 dark:text-gray-100 px-4 p-2 inline-block rounded-md shadow-md w-full">
     <neo-realm-indicator :realm="realm"></neo-realm-indicator>
-    {{ name }}
+    <span class="font-mono">{{ name }}(<span v-for="(param, index) in params" :key="index">{{ param.typs.join('|') + ' ' + param.name }}{{ (index != (params.length - 1)) ? ', ' : '' }}</span>)</span>
   </div>
 </template>
 
@@ -17,5 +17,6 @@ import NeoRealmIndicator from '@/components/RealmIndicator.vue'
 export default class FunctionLine extends Vue {
   @Prop({ default: '' }) name: string;
   @Prop({ default: '' }) realm: string;
+  @Prop() params: Array<Record<string, unknown>>;
 }
 </script>
