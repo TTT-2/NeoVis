@@ -2,10 +2,10 @@
 <neo-spinner :loading.sync="isLoading">
   <div class="w-full md:w-auto flex-none text-lg overflow-y-auto">
     <div class="py-2">
-      <neo-menu-item-l1 icon="book" title="Modules" :elements="this.content.module"></neo-menu-item-l1>
-      <neo-menu-item-l1 icon="sitemap" title="Classes" :elements="this.content.class"></neo-menu-item-l1>
-      <neo-menu-item-l1 icon="link" title="Hooks" :elements="this.content.hook" :specialObjectName="'hook'"></neo-menu-item-l1>
-      <neo-menu-item-l1 icon="wrench" title="Convars" :elements="this.content.createconvar" :specialObjectName="'createconvar'"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="book" title="Modules" :elements="this.content.module" :baseName="'module'"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="sitemap" title="Classes" :elements="this.content.class" :baseName="'class'"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="link" title="Hooks" :elements="this.content.hook" :baseName="'hook'"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="wrench" title="Convars" :elements="this.content.createconvar" :baseName="'createconvar'"></neo-menu-item-l1>
     </div>
   </div>
 </neo-spinner>
@@ -38,7 +38,7 @@ export default class Sidebar extends Vue {
 
     axios.get('/data/overview.json')
       .then(response => {
-        this.content = response.data
+        this.content = Object.freeze(response.data)
       })
       .catch(reason => {
         this.$notify({
@@ -53,7 +53,3 @@ export default class Sidebar extends Vue {
   }
 }
 </script>
-
-<style scoped lang="scss">
-
-</style>

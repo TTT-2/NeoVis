@@ -13,11 +13,11 @@ const routes = [
     component: Home
   },
   {
-    path: '/:objectName/:sectionName/:realmName/:elementName',
+    path: '/:baseName/:objectName/:sectionName/:realmName/:elementName',
     component: FunctionDescription
   },
   {
-    path: '/:sectionName/:realmName/:elementName',
+    path: '/:baseName/:sectionName/:realmName/:elementName',
     component: FunctionDescription
   },
   {

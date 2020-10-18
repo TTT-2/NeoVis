@@ -2,7 +2,7 @@
   <neo-accordion :title="sectionName" @update-state="opened = $event">
     <div slot="content">
       <div v-for="(item, index) in elements" :key="index">
-        <neo-realm-info-router-link :realm="item.realm" :section="sectionName" :object="objectName" :element="item.name">{{ item.name }}</neo-realm-info-router-link>
+        <neo-realm-info-router-link :realm="item.realm" :base="baseName" :section="sectionName" :object="objectName" :element="item.name">{{ item.name }}</neo-realm-info-router-link>
       </div>
     </div>
   </neo-accordion>
@@ -20,8 +20,9 @@ import NeoRealmInfoRouterLink from '@/components/RealmInfoRouterLink.vue'
   }
 })
 export default class SidebarMenuItemL3 extends Vue {
-  @Prop({ default: undefined }) sectionName: string;
-  @Prop({ default: undefined }) objectName: string;
+  @Prop({ default: '' }) sectionName: string;
+  @Prop({ default: '' }) objectName: string;
+  @Prop({ default: '' }) baseName: string;
   @Prop() elements: Record<string, unknown>;
 
   opened = false;

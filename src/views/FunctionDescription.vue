@@ -44,7 +44,7 @@ export default class FunctionDescription extends Vue {
   content = {}
   isLoading = true
 
-  mounted (): void {
+  created (): void {
     this.fetchData()
   }
 
@@ -71,8 +71,8 @@ export default class FunctionDescription extends Vue {
   get dataLink (): string {
     var lnk = ''
 
+    lnk += this.$route.params.baseName + '/'
     if (this.$route.params.objectName !== undefined) lnk += this.$route.params.objectName + '/'
-
     lnk += this.$route.params.sectionName + '/'
     lnk += this.$route.params.realmName + '/'
     lnk += this.$route.params.elementName.replace(':', '..')
