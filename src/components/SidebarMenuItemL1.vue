@@ -12,7 +12,7 @@
     <div slot="content">
       <div v-for="(item, key) in this.elements" :key="key">
         <neo-sidebar-menu-item-l2 v-if="Array.isArray(item) == false" :element="item" :objectName="key"></neo-sidebar-menu-item-l2>
-        <neo-sidebar-menu-item-l3 v-else :elements="item" :sectionName="key"></neo-sidebar-menu-item-l3>
+        <neo-sidebar-menu-item-l3 v-else :elements="item" :objectName="specialObjectName" :sectionName="key"></neo-sidebar-menu-item-l3>
       </div>
     </div>
   </neo-accordion>
@@ -34,6 +34,7 @@ import NeoSidebarMenuItemL3 from '@/components/SidebarMenuItemL3.vue'
 export default class SidebarMenuItemL1 extends Vue {
   @Prop({ default: 'link' }) icon: string;
   @Prop({ default: 'UNTITLED' }) title: string;
+  @Prop({ default: '' }) specialObjectName: string;
   @Prop() elements: Array<Record<string, unknown>>|Record<string, unknown>;
 
   opened = false;

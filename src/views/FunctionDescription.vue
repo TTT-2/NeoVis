@@ -1,6 +1,6 @@
 <template>
 <div v-if="Object.entries(this.content).length !== 0">
-  <neo-function-line :realm="content.realm" :name="content.name" :params="this.content.params.param"></neo-function-line>
+  <neo-function-line :realm="content.realm" :name="content.name" :params="content.params !== undefined ? content.params.param : undefined"></neo-function-line>
   <div v-if="this.content.params !== undefined">
     <div v-if="this.content.params.desc !== undefined" class="p-2 my-2 rounded border border-gray-700">
       <span class="block font-bold text-lg">Description</span>
