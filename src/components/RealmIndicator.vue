@@ -13,7 +13,7 @@ enum Realm {
 
 @Component
 export default class RealmIndicator extends Vue {
-  @Prop({ default: Realm.Shared }) realm: Realm;
+  @Prop({ default: Realm.Shared }) realm!: Realm;
 
   get realmColor (): string {
     switch (this.realm) {

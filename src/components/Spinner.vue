@@ -14,7 +14,7 @@ import { Component, PropSync, Vue } from 'vue-property-decorator'
 
 @Component
 export default class Spinner extends Vue {
-  @PropSync('loading', { type: Boolean }) syncedLoading: boolean;
+  @PropSync('loading', { type: Boolean, default: false }) syncedLoading!: boolean;
 }
 </script>
 

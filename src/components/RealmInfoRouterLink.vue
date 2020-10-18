@@ -15,11 +15,11 @@ import NeoRealmIndicator from '@/components/RealmIndicator.vue'
   }
 })
 export default class RealmInfoRouterLink extends Vue {
-  @Prop({ default: '' }) base: string;
-  @Prop({ default: '' }) object: string;
-  @Prop({ default: '' }) section: string;
-  @Prop({ default: '' }) element: string;
-  @Prop({ default: '' }) realm: string;
+  @Prop({ default: '' }) base!: string;
+  @Prop({ default: '' }) object!: string;
+  @Prop({ default: '' }) section!: string;
+  @Prop({ default: '' }) element!: string;
+  @Prop({ default: '' }) realm!: string;
 
   get link (): string {
     var lnk = '/'

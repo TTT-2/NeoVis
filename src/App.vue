@@ -37,12 +37,16 @@ export default Vue.extend({
   }),
   mounted: function () {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.querySelector('html').classList.add('dark')
+      const root = document.querySelector('html')
+
+      root?.classList.add('dark')
     }
   },
   methods: {
     toggleTheme (): void {
-      document.querySelector('html').classList.toggle('dark')
+      const root = document.querySelector('html')
+
+      root?.classList.toggle('dark')
     }
   }
 })

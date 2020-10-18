@@ -32,10 +32,10 @@ import NeoSidebarMenuItemL3 from '@/components/SidebarMenuItemL3.vue'
   }
 })
 export default class SidebarMenuItemL1 extends Vue {
-  @Prop({ default: 'link' }) icon: string;
-  @Prop({ default: 'UNTITLED' }) title: string;
-  @Prop({ default: '' }) baseName: string;
-  @Prop() elements: Array<Record<string, unknown>>|Record<string, unknown>;
+  @Prop({ default: 'link' }) icon!: string;
+  @Prop({ default: 'UNTITLED' }) title!: string;
+  @Prop({ default: '' }) baseName!: string;
+  @Prop({ default: {} }) elements!: Array<Record<string, unknown>>|Record<string, unknown>;
 
   opened = false;
 }

@@ -28,7 +28,7 @@ import NeoMenuItemL1 from '@/components/SidebarMenuItemL1.vue'
   }
 })
 export default class Sidebar extends Vue {
-  @Prop() private query!: string;
+  @Prop({ default: '' }) private query!: string;
 
   content = {}
   isLoading = true

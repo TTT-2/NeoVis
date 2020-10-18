@@ -20,9 +20,9 @@ import NeoRealmInfoRouterLink from '@/components/RealmInfoRouterLink.vue'
   }
 })
 export default class SidebarMenuItemL2 extends Vue {
-  @Prop() element: Record<string, unknown>;
-  @Prop({ default: 'untitled object' }) objectName: string;
-  @Prop({ default: '' }) baseName: string;
+  @Prop({ default: {} }) element!: Record<string, unknown>;
+  @Prop({ default: 'untitled object' }) objectName!: string;
+  @Prop({ default: '' }) baseName!: string;
 
   opened = false;
 }

@@ -20,7 +20,7 @@ import NeoAccordion from '@/components/Accordion.vue'
   }
 })
 export default class NavAccordion extends Vue {
-  @Prop({ default: 'UNTITLED' }) title: string;
+  @Prop({ default: 'UNTITLED' }) title!: string;
 
   opened = false;
 }
