@@ -38,7 +38,13 @@ import NeoSpinner from '@/components/Spinner.vue'
   }
 })
 export default class FunctionDescription extends Vue {
-  content = {}
+  content = {
+    params: {
+      param: [],
+      desc: []
+    }
+  }
+
   isLoading = true
 
   created (): void {
