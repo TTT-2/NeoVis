@@ -1,7 +1,7 @@
 <template>
 <neo-spinner :loading.sync="isLoading" >
   <div v-show="!isLoading" v-if="Object.entries(this.content).length !== 0">
-    <neo-function-line :realm="content.realm" :name="content.name" :params="content.params !== undefined ? content.params.param : undefined"></neo-function-line>
+    <neo-function-line :realm="content.realm" :name="content.name" :source="content.source" :params="content.params.param"></neo-function-line>
     <div v-if="this.content.params !== undefined">
       <neo-param-info-box v-if="hasDescription" :title="'Description'" :icon="'quote-right'">
         <span class="block" v-for="(line, index) in this.content.params.desc" :key="index">{{ line.text }}</span>
