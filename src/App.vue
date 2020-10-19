@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bg-gray-200 dark:bg-gray-800 text-black dark:text-gray-100 h-screen flex flex-col">
+  <div id="app" class="bg-gray-200 dark:bg-gray-800 text-black dark:text-gray-100 min-h-screen md:h-screen flex flex-col">
     <notifications position="bottom right" class="m-2" />
     <div class="flex items-center justify-between px-4 py-3 border-b border-gray-400 dark:border-gray-900 shadow z-40">
       <div>
