@@ -1,7 +1,7 @@
 <template>
 <neo-spinner :loading.sync="isLoading" >
   <div v-show="!isLoading" v-if="Object.entries(this.content).length !== 0">
-    <neo-function-line :realm="content.realm" :name="content.name" :source="content.source" :params="content.params.param"></neo-function-line>
+    <neo-function-line :realm="content.realm" :name="content.name" :source="content.source" :params="hasParameters ? content.params.param : {}"></neo-function-line>
     <div v-if="this.content.params !== undefined">
       <neo-param-info-box v-if="hasDescription" :title="'Description'" :icon="'quote-right'">
         <span class="block" v-for="(line, index) in this.content.params.desc" :key="index">{{ line.text }}</span>
@@ -71,12 +71,16 @@ export default class FunctionDescription extends Vue {
       })
   }
 
+  get hasParams (): boolean {
+    return this.content !== undefined && this.content.params !== undefined
+  }
+
   get hasDescription (): boolean {
-    return this.content.params.desc !== undefined && this.content.params.desc.length !== 0
+    return this.hasParams && this.content.params.desc !== undefined && this.content.params.desc.length !== 0
   }
 
   get hasParameters (): boolean {
-    return this.content.params.param !== undefined && this.content.params.param.length !== 0
+    return this.hasParams && this.content.params.param !== undefined && this.content.params.param.length !== 0
   }
 
   get dataLink (): string {
