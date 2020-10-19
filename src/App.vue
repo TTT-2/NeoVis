@@ -15,7 +15,7 @@
     </div>
     <div id="inner" class="flex flex-col md:flex-row flex-grow md:h-full md:overflow-hidden">
       <neo-sidebar class="bg-gray-300 dark:bg-gray-900 border-gray-400 dark:border-black border-r"/>
-      <router-view class="flex-grow p-4"/>
+      <router-view class="flex-grow p-4 overflow-y-auto"/>
     </div>
   </div>
 </template>

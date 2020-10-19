@@ -1,6 +1,6 @@
 <template>
     <transition name="component-fade" mode="out-in" appear>
-      <div :key="'spinner'" v-if="syncedLoading" class="h-full flex justify-center flex-col items-center">
+      <div :key="'spinner'" v-if="syncedLoading" class="h-full w-full flex justify-center flex-col items-center">
         <font-awesome-icon :icon="'spinner'" size="lg" class="transition-opacity m-2" spin></font-awesome-icon>
       </div>
       <div v-else>

@@ -3,7 +3,7 @@
     <div @click="toggle()" class="cursor-pointer">
       <slot name="title"/>
     </div>
-    <div :class="isOpen ? '' : 'overflow-hidden h-0 max-h-0'">
+    <div v-if="isOpen">
       <slot name="content"/>
     </div>
   </div>

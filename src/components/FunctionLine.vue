@@ -17,6 +17,6 @@ import NeoRealmIndicator from '@/components/RealmIndicator.vue'
 export default class FunctionLine extends Vue {
   @Prop({ default: '' }) name!: string;
   @Prop({ default: '' }) realm!: string;
-  @Prop({ default: [] }) params!: Array<Record<string, unknown>>;
+  @Prop({ default: () => ([]) }) params!: Array<Record<string, unknown>>;
 }
 </script>

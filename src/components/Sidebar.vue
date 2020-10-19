@@ -1,14 +1,12 @@
 <template>
-<neo-spinner :loading.sync="isLoading">
-  <div class="h-full w-full md:w-auto flex-none text-lg overflow-y-auto">
-    <div class="py-2">
+  <div class="flex-none w-full md:w-1/3 text-lg overflow-y-auto">
+    <neo-spinner class="py-2" :loading.sync="isLoading">
       <neo-menu-item-l1 icon="book" title="Modules" :elements="this.content.module" :baseName="'module'"></neo-menu-item-l1>
       <neo-menu-item-l1 icon="sitemap" title="Classes" :elements="this.content.class" :baseName="'class'"></neo-menu-item-l1>
       <neo-menu-item-l1 icon="link" title="Hooks" :elements="this.content.hook" :baseName="'hook'"></neo-menu-item-l1>
       <neo-menu-item-l1 icon="wrench" title="Convars" :elements="this.content.createconvar" :baseName="'createconvar'"></neo-menu-item-l1>
-    </div>
+    </neo-spinner>
   </div>
-</neo-spinner>
 </template>
 
 <script lang="ts">
@@ -33,7 +31,7 @@ export default class Sidebar extends Vue {
   content = {}
   isLoading = true
 
-  mounted (): void {
+  created (): void {
     this.isLoading = true
 
     axios.get('/data/overview.json')

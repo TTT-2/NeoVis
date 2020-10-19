@@ -28,7 +28,7 @@ export default class RealmIndicator extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .bg-realm-client {
     background-color: #d3a10c;
   }
