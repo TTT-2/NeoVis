@@ -18,6 +18,18 @@
           </tbody>
         </table>
       </neo-param-info-box>
+      <neo-param-info-box v-if="hasReturn" :title="'Return values'" :icon="'arrow-alt-circle-left'">
+        <table class="table-auto ml-1">
+          <tbody>
+            <tr v-for="(param, index) in this.content.params.return" :key="index">
+              <td class="pr-2">{{ index + 1 }}</td>
+              <td class="pr-2 font-mono font-bold">{{ param.typs.join('|') }}</td>
+              <td class="pr-2">{{ param.name }}</td>
+              <td>{{ param.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </neo-param-info-box>
     </div>
   </div>
 </neo-spinner>
@@ -81,6 +93,14 @@ export default class FunctionDescription extends Vue {
 
   get hasParameters (): boolean {
     return this.hasParams && this.content.params.param !== undefined && this.content.params.param.length !== 0
+  }
+
+  get hasReturn (): boolean {
+    return this.hasParams && this.content.params.return !== undefined && this.content.params.return.length !== 0
+  }
+
+  get isInternal (): boolean {
+    return this.hasParams && this.content.params.internal !== undefined
   }
 
   get dataLink (): string {
