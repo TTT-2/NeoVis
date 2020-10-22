@@ -1,15 +1,18 @@
 module.exports = {
   experimental: {
-    darkModeVariant: true,
+    darkModeVariant: true
   },
   future: {
-    purgeLayersByDefault: true,
+    removeDeprecatedGapUtilities: true,
+    defaultLineHeights: true,
+    standardFontWeights: true,
+    purgeLayersByDefault: true
   },
   dark: 'class',
   purge: [
     './src/**/*.html',
     './src/**/*.vue',
-    './src/**/*.jsx',
+    './src/**/*.jsx'
   ],
   theme: {
     extend: {}
@@ -23,20 +26,20 @@ module.exports = {
       ...variants('opacity'),
       'group-hover',
       'group-focus',
-      'dark',
+      'dark'
     ],
     fill: ({ variants }) => [
       ...variants('fill'),
       'group-hover',
       'group-focus',
-      'dark',
+      'dark'
     ],
     stroke: ({ variants }) => [
       ...variants('stroke'),
       'group-hover',
       'group-focus',
-      'dark',
-    ],
+      'dark'
+    ]
   },
   plugins: []
 }

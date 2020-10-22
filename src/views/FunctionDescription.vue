@@ -42,6 +42,33 @@ import NeoFunctionLine from '@/components/FunctionLine.vue'
 import NeoParamInfoBox from '@/components/ParamInfoBox.vue'
 import NeoSpinner from '@/components/Spinner.vue'
 
+interface FunctionData {
+  name?: string,
+  realm?: string,
+  source?: {
+    file: string,
+    line: number
+  }
+  params?: {
+    param?:
+      {
+        name?: string,
+        description?: string,
+        typs?: Array<string>
+      }[],
+    desc?:
+      {
+        text: string
+      }[],
+    internal?: Array<unknown>,
+    return?:
+      {
+        description?: string,
+        typs?: Array<string>
+      }[]
+  }
+}
+
 @Component({
   components: {
     NeoFunctionLine,
@@ -50,12 +77,7 @@ import NeoSpinner from '@/components/Spinner.vue'
   }
 })
 export default class FunctionDescription extends Vue {
-  content = {
-    params: {
-      param: [],
-      desc: []
-    }
-  }
+  content: FunctionData = {}
 
   isLoading = true
 
@@ -84,23 +106,23 @@ export default class FunctionDescription extends Vue {
   }
 
   get hasParams (): boolean {
-    return this.content !== undefined && this.content.params !== undefined
+    return this.content !== undefined && this.content?.params !== undefined
   }
 
   get hasDescription (): boolean {
-    return this.hasParams && this.content.params.desc !== undefined && this.content.params.desc.length !== 0
+    return this.content?.params?.desc !== undefined && this.content?.params?.desc?.length !== 0
   }
 
   get hasParameters (): boolean {
-    return this.hasParams && this.content.params.param !== undefined && this.content.params.param.length !== 0
+    return this.content?.params?.param !== undefined && this.content?.params?.param?.length !== 0
   }
 
   get hasReturn (): boolean {
-    return this.hasParams && this.content.params.return !== undefined && this.content.params.return.length !== 0
+    return this.content?.params?.return !== undefined && this.content?.params?.return?.length !== 0
   }
 
   get isInternal (): boolean {
-    return this.hasParams && this.content.params.internal !== undefined
+    return this.content.params.internal !== undefined
   }
 
   get dataLink (): string {
