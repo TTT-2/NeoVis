@@ -122,7 +122,7 @@ export default class FunctionDescription extends Vue {
   }
 
   get isInternal (): boolean {
-    return this.content.params.internal !== undefined
+    return this.content?.params?.internal !== undefined
   }
 
   get dataLink (): string {
