@@ -69,12 +69,12 @@ interface FunctionData {
       {
         text: string
       }[],
-    internal?: Array<unknown>,
-    predicted?: Array<unknown>,
-    '2D'?: Array<unknown>,
-    '3D'?: Array<unknown>,
-    deprecated?: Array<unknown>,
-    important?: Array<unknown>,
+    internal?: boolean,
+    predicted?: boolean,
+    '2D'?: boolean,
+    '3D'?: boolean,
+    deprecated?: boolean,
+    important?: boolean,
     return?:
       {
         description?: string,
@@ -163,10 +163,10 @@ export default class FunctionDescription extends Vue {
   get dataLink (): string {
     var lnk = ''
 
-    lnk += this.$route.params.baseName + '/'
-    if (this.$route.params.objectName !== undefined) lnk += this.$route.params.objectName + '/'
-    lnk += this.$route.params.sectionName + '/'
-    lnk += this.$route.params.realmName + '/'
+    lnk += this.$route.params.baseName.toLowerCase() + '/'
+    if (this.$route.params.objectName !== undefined) lnk += this.$route.params.objectName.toLowerCase() + '/'
+    lnk += this.$route.params.sectionName.toLowerCase() + '/'
+    lnk += this.$route.params.realmName.toLowerCase() + '/'
     lnk += this.$route.params.elementName.replace(':', '..').replace(/[^\w.]/gi, '')
 
     return lnk
