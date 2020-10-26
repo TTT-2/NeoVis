@@ -75,7 +75,6 @@ interface FunctionData {
     '3D'?: Array<unknown>,
     deprecated?: Array<unknown>,
     important?: Array<unknown>,
-    predicted?: Array<unknown>,
     return?:
       {
         description?: string,
