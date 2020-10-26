@@ -1,7 +1,15 @@
 <template>
 <neo-spinner :loading.sync="isLoading" >
   <div v-show="!isLoading" v-if="Object.entries(this.content).length !== 0">
+    <neo-function-flag v-if="isInternal">Internal</neo-function-flag>
+    <neo-function-flag v-if="isDeprecated">Deprecated</neo-function-flag>
+    <neo-function-flag v-if="is2D">2D</neo-function-flag>
+    <neo-function-flag v-if="is3D">3D</neo-function-flag>
+    <neo-function-flag v-if="isImportant">Important</neo-function-flag>
+    <neo-function-flag v-if="isPredicted">Predicted</neo-function-flag>
+
     <neo-function-line :realm="content.realm" :name="content.name" :source="content.source" :params="hasParameters ? content.params.param : {}"></neo-function-line>
+
     <div v-if="this.content.params !== undefined">
       <neo-param-info-box v-if="hasDescription" :title="'Description'" :icon="'quote-right'">
         <span class="block" v-for="(line, index) in this.content.params.desc" :key="index">{{ line.text }}</span>
@@ -41,6 +49,7 @@ import { Component, Vue, Watch } from 'vue-property-decorator'
 import NeoFunctionLine from '@/components/FunctionLine.vue'
 import NeoParamInfoBox from '@/components/ParamInfoBox.vue'
 import NeoSpinner from '@/components/Spinner.vue'
+import NeoFunctionFlag from '@/components/FunctionFlag.vue'
 
 interface FunctionData {
   name?: string,
@@ -73,7 +82,8 @@ interface FunctionData {
   components: {
     NeoFunctionLine,
     NeoParamInfoBox,
-    NeoSpinner
+    NeoSpinner,
+    NeoFunctionFlag
   }
 })
 export default class FunctionDescription extends Vue {
@@ -123,6 +133,26 @@ export default class FunctionDescription extends Vue {
 
   get isInternal (): boolean {
     return this.content?.params?.internal !== undefined
+  }
+
+  get is2D (): boolean {
+    return this.content?.params !== undefined && this.content?.params['2D'] !== undefined
+  }
+
+  get is3D (): boolean {
+    return this.content?.params !== undefined && this.content?.params['3D'] !== undefined
+  }
+
+  get isDeprecated (): boolean {
+    return this.content?.params?.deprecated !== undefined
+  }
+
+  get isImportant (): boolean {
+    return this.content?.params?.important !== undefined
+  }
+
+  get isPredicted (): boolean {
+    return this.content?.params?.predicted !== undefined
   }
 
   get dataLink (): string {
