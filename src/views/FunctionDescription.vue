@@ -70,6 +70,12 @@ interface FunctionData {
         text: string
       }[],
     internal?: Array<unknown>,
+    predicted?: Array<unknown>,
+    '2D'?: Array<unknown>,
+    '3D'?: Array<unknown>,
+    deprecated?: Array<unknown>,
+    important?: Array<unknown>,
+    predicted?: Array<unknown>,
     return?:
       {
         description?: string,
