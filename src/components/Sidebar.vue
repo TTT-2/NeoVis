@@ -1,10 +1,10 @@
 <template>
   <div class="flex-none w-full md:w-1/3 text-lg overflow-y-auto">
     <neo-spinner class="py-2" :loading.sync="isLoading">
-      <neo-menu-item-l1 icon="book" title="Modules" :elements="this.content.module" :baseName="'module'"></neo-menu-item-l1>
-      <neo-menu-item-l1 icon="sitemap" title="Classes" :elements="this.content.class" :baseName="'class'"></neo-menu-item-l1>
-      <neo-menu-item-l1 icon="link" title="Hooks" :elements="this.content.hook" :baseName="'hook'"></neo-menu-item-l1>
-      <neo-menu-item-l1 icon="wrench" title="Convars" :elements="this.content.createconvar" :baseName="'createconvar'"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="book" title="Modules" :elements="this.content.module" :baseName="'module'" :defaultOpened="moduleOpened"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="sitemap" title="Classes" :elements="this.content.class" :baseName="'class'" :defaultOpened="classOpened"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="link" title="Hooks" :elements="this.content.hook" :baseName="'hook'" :defaultOpened="hookOpened"></neo-menu-item-l1>
+      <neo-menu-item-l1 icon="wrench" title="Convars" :elements="this.content.createconvar" :baseName="'createconvar'" :defaultOpened="convarOpened"></neo-menu-item-l1>
     </neo-spinner>
   </div>
 </template>
@@ -31,12 +31,19 @@ export default class Sidebar extends Vue {
   content = {}
   isLoading = true
 
+  moduleOpened = false
+  classOpened = false
+  hookOpened = false
+  convarOpened = false
+
   created (): void {
     this.isLoading = true
 
     axios.get('/data/overview.json')
       .then(response => {
         this.content = Object.freeze(response.data)
+
+        this.defaultExpand()
       })
       .catch(reason => {
         this.$notify({
@@ -48,6 +55,13 @@ export default class Sidebar extends Vue {
       .finally(() => {
         this.isLoading = false
       })
+  }
+
+  defaultExpand (): void {
+    this.moduleOpened = this.$route.params.baseName === 'module'
+    this.classOpened = this.$route.params.baseName === 'class'
+    this.hookOpened = this.$route.params.baseName === 'hook'
+    this.convarOpened = this.$route.params.baseName === 'createconvar'
   }
 }
 </script>

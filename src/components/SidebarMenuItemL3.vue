@@ -1,5 +1,5 @@
 <template>
-  <neo-accordion :title="sectionName" @update-state="opened = $event">
+  <neo-accordion :title="sectionName" :opened.sync="opened">
     <div slot="content">
       <div v-for="(item, index) in elements" :key="index">
         <neo-realm-info-router-link :realm="item.realm" :base="baseName" :section="sectionName" :object="objectName" :element="item.name">{{ item.name }}</neo-realm-info-router-link>
@@ -24,7 +24,8 @@ export default class SidebarMenuItemL3 extends Vue {
   @Prop({ default: '' }) objectName!: string;
   @Prop({ default: '' }) baseName!: string;
   @Prop({ default: () => ({}) }) elements!: Record<string, unknown>;
+  @Prop({ default: false }) defaultOpened!: boolean;
 
-  opened = false;
+  opened = this.defaultOpened
 }
 </script>

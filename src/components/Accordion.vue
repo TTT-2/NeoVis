@@ -3,26 +3,21 @@
     <div @click="toggle()" class="cursor-pointer">
       <slot name="title"/>
     </div>
-    <div v-if="isOpen">
+    <div v-if="openedSync">
       <slot name="content"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, PropSync } from 'vue-property-decorator'
 
 @Component
 export default class Accordion extends Vue {
-  opened = false;
-
-  get isOpen (): boolean {
-    return this.opened
-  }
+  @PropSync('opened', { default: false }) openedSync!: boolean;
 
   private toggle (): void {
-    this.opened = !this.opened
-    this.$emit('update-state', this.opened)
+    this.openedSync = !this.openedSync
   }
 }
 </script>

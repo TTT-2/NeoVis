@@ -1,5 +1,5 @@
 <template>
-  <neo-accordion @update-state="opened = $event">
+  <neo-accordion :opened.sync="opened">
     <span slot="title" :class="[
       'inline-flex items-center text-lg font-bold select-none w-full px-4 py-1 hover:text-gray-800 dark:hover:text-gray-400',
       this.opened ? 'bg-gray-400 text-gray-900 dark:bg-gray-700 dark:text-gray-100' : ''
@@ -11,8 +11,8 @@
     </span>
     <div slot="content">
       <div v-for="(item, key) in this.elements" :key="key">
-        <neo-sidebar-menu-item-l2 v-if="Array.isArray(item) == false" :element="item" :objectName="key" :baseName="baseName"></neo-sidebar-menu-item-l2>
-        <neo-sidebar-menu-item-l3 v-else :elements="item" :baseName="baseName" :sectionName="key"></neo-sidebar-menu-item-l3>
+        <neo-sidebar-menu-item-l2 v-if="Array.isArray(item) == false" :defaultOpened="$route.params.objectName === key" :element="item" :objectName="key" :baseName="baseName"></neo-sidebar-menu-item-l2>
+        <neo-sidebar-menu-item-l3 v-else :defaultOpened="$route.params.sectionName === key" :elements="item" :baseName="baseName" :sectionName="key"></neo-sidebar-menu-item-l3>
       </div>
     </div>
   </neo-accordion>
@@ -36,7 +36,8 @@ export default class SidebarMenuItemL1 extends Vue {
   @Prop({ default: 'UNTITLED' }) title!: string;
   @Prop({ default: '' }) baseName!: string;
   @Prop({ default: () => ({}) }) elements!: Array<Record<string, unknown>>|Record<string, unknown>;
+  @Prop({ default: false }) defaultOpened!: boolean;
 
-  opened = false;
+  opened = this.defaultOpened
 }
 </script>
