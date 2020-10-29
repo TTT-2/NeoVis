@@ -1,5 +1,5 @@
 <template>
-  <param-box :title="title" :icon="icon" class="border border-gray-400 dark:border-gray-900 bg-gray-300 dark:bg-gray-700">
+  <param-box :title="title" :icon="icon" class="border border-red-400 dark:border-red-700 bg-red-300 dark:bg-red-900">
     <slot/>
   </param-box>
 </template>
@@ -13,8 +13,8 @@ import ParamBox from '@/components/ParamBox.vue'
     ParamBox
   }
 })
-export default class ParamInfoBox extends Vue {
+export default class ParamWarnBox extends Vue {
   @Prop({ default: 'UNTITLED' }) title!: string;
-  @Prop({ default: 'list' }) icon!: string;
+  @Prop({ default: 'exclamation-triangle' }) icon!: string;
 }
 </script>

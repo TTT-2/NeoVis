@@ -11,8 +11,11 @@
     <neo-function-line :realm="content.realm" :name="content.name" :source="content.source" :params="hasParameters ? content.params.param : {}"></neo-function-line>
 
     <div v-if="this.content.params !== undefined">
+      <neo-param-warn-box v-if="hasNote" :title="'Note'">
+        <p class="block" v-for="(line, index) in this.content.params.note" :key="index">{{ line.text }}</p>
+      </neo-param-warn-box>
       <neo-param-info-box v-if="hasDescription" :title="'Description'" :icon="'quote-right'">
-        <span class="block" v-for="(line, index) in this.content.params.desc" :key="index">{{ line.text }}</span>
+        <p class="block" v-for="(line, index) in this.content.params.desc" :key="index">{{ line.text }}</p>
       </neo-param-info-box>
       <neo-param-info-box v-if="hasParameters" :title="'Parameters'" :icon="'list'">
         <table class="table-auto ml-1">
@@ -48,6 +51,7 @@ import axios from 'axios'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import NeoFunctionLine from '@/components/FunctionLine.vue'
 import NeoParamInfoBox from '@/components/ParamInfoBox.vue'
+import NeoParamWarnBox from '@/components/ParamWarnBox.vue'
 import NeoSpinner from '@/components/Spinner.vue'
 import NeoFunctionFlag from '@/components/FunctionFlag.vue'
 
@@ -69,6 +73,10 @@ interface FunctionData {
       {
         text: string
       }[],
+    note?:
+      {
+        text: string
+      }[],
     internal?: boolean,
     predicted?: boolean,
     '2D'?: boolean,
@@ -87,6 +95,7 @@ interface FunctionData {
   components: {
     NeoFunctionLine,
     NeoParamInfoBox,
+    NeoParamWarnBox,
     NeoSpinner,
     NeoFunctionFlag
   }
@@ -134,6 +143,10 @@ export default class FunctionDescription extends Vue {
 
   get hasReturn (): boolean {
     return this.content?.params?.return !== undefined && this.content?.params?.return?.length !== 0
+  }
+
+  get hasNote (): boolean {
+    return this.content?.params?.note !== undefined && this.content?.params?.note?.length !== 0
   }
 
   get isInternal (): boolean {
