@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Error404 from '../views/Error404.vue'
-import FunctionDescription from '../views/FunctionDescription.vue'
+import Details from '../views/Details.vue'
 
 Vue.use(VueRouter)
 
@@ -14,11 +14,11 @@ const routes = [
   },
   {
     path: '/:baseName/:objectName/:sectionName/:realmName/:elementName',
-    component: FunctionDescription
+    component: Details
   },
   {
     path: '/:baseName/:sectionName/:realmName/:elementName',
-    component: FunctionDescription
+    component: Details
   },
   {
     path: '*',

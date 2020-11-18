@@ -1,12 +1,12 @@
 <template>
 <neo-spinner :loading.sync="isLoading" >
   <div v-show="!isLoading" v-if="Object.entries(this.content).length !== 0">
-    <neo-function-flag v-if="isInternal">Internal</neo-function-flag>
-    <neo-function-flag v-if="isDeprecated">Deprecated</neo-function-flag>
-    <neo-function-flag v-if="is2D">2D</neo-function-flag>
-    <neo-function-flag v-if="is3D">3D</neo-function-flag>
-    <neo-function-flag v-if="isImportant">Important</neo-function-flag>
-    <neo-function-flag v-if="isPredicted">Predicted</neo-function-flag>
+    <neo-param-flag v-if="isInternal">Internal</neo-param-flag>
+    <neo-param-flag v-if="isDeprecated">Deprecated</neo-param-flag>
+    <neo-param-flag v-if="is2D">2D</neo-param-flag>
+    <neo-param-flag v-if="is3D">3D</neo-param-flag>
+    <neo-param-flag v-if="isImportant">Important</neo-param-flag>
+    <neo-param-flag v-if="isPredicted">Predicted</neo-param-flag>
 
     <neo-function-line :realm="content.realm" :name="content.name" :source="content.source" :params="hasParameters ? content.params.param : {}"></neo-function-line>
 
@@ -53,7 +53,7 @@ import NeoFunctionLine from '@/components/FunctionLine.vue'
 import NeoParamInfoBox from '@/components/ParamInfoBox.vue'
 import NeoParamWarnBox from '@/components/ParamWarnBox.vue'
 import NeoSpinner from '@/components/Spinner.vue'
-import NeoFunctionFlag from '@/components/FunctionFlag.vue'
+import NeoParamFlag from '@/components/ParamFlag.vue'
 
 interface FunctionData {
   name?: string,
@@ -97,10 +97,10 @@ interface FunctionData {
     NeoParamInfoBox,
     NeoParamWarnBox,
     NeoSpinner,
-    NeoFunctionFlag
+    NeoParamFlag
   }
 })
-export default class FunctionDescription extends Vue {
+export default class FunctionDetails extends Vue {
   content: FunctionData = {}
 
   isLoading = true

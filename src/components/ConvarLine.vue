@@ -1,6 +1,6 @@
 <template>
   <neo-head-line :realm="realm" :source="source">
-    {{ name }}(<span v-for="(param, index) in params" :key="index">{{ param.typs.join('|') + ' ' + param.name }}{{ (index != (params.length - 1)) ? ', ' : '' }}</span>)
+    {{ name }}
   </neo-head-line>
 </template>
 
@@ -15,17 +15,13 @@ import NeoHeadLine from '@/components/HeadLine.vue'
     NeoHeadLine
   }
 })
-export default class FunctionLine extends Vue {
+export default class ConvarLine extends Vue {
   @Prop({ default: '' }) name!: string;
   @Prop({ default: '' }) realm!: string;
+
   @Prop({ default: () => ({}) }) source!: {
     file: string,
     line: number
   };
-
-  @Prop({ default: () => ([]) }) params!: {
-    typs: Array<string>,
-    name: string
-  }[];
 }
 </script>

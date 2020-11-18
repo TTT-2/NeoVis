@@ -8,7 +8,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
-export default class FunctionFlag extends Vue {
+export default class ParamFlag extends Vue {
   @Prop({ default: '' }) name!: string;
 }
 </script>
