@@ -22,7 +22,7 @@ export default class RealmInfoRouterLink extends Vue {
   @Prop({ default: '' }) realm!: string;
 
   get link (): string {
-    var lnk = '/'
+    let lnk = '/'
 
     lnk += this.base + '/'
     if (this.object !== '') lnk += this.object + '/'

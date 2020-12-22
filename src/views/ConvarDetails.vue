@@ -155,7 +155,7 @@ export default class ConvarDetails extends Vue {
   }
 
   get dataLink (): string {
-    var lnk = 'createconvar/'
+    let lnk = 'createconvar/'
 
     if (this.$route.params.objectName !== undefined) lnk += this.$route.params.objectName.toLowerCase() + '/'
     lnk += this.$route.params.sectionName.toLowerCase() + '/'

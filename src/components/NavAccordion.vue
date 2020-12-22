@@ -1,6 +1,6 @@
 <template>
   <neo-accordion :opened.sync="openedSync" class="border-l-8 border-gray-500 dark:border-gray-800">
-    <span slot="title" class="inline-block select-none w-full h-full hover:text-gray-700 dark:hover:text-gray-400 shadow-xs border-gray-400">
+    <span slot="title" class="inline-block select-none w-full h-full hover:text-gray-700 dark:hover:text-gray-400 ring-1 ring-black ring-opacity-5 border-gray-400">
       <font-awesome-icon :icon="this.openedSync ? 'angle-up' : 'angle-down'" class="mx-2" ></font-awesome-icon>
       {{ title }}
     </span>

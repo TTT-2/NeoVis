@@ -1,14 +1,5 @@
 module.exports = {
-  experimental: {
-    darkModeVariant: true
-  },
-  future: {
-    removeDeprecatedGapUtilities: true,
-    defaultLineHeights: true,
-    standardFontWeights: true,
-    purgeLayersByDefault: true
-  },
-  dark: 'class',
+  darkMode: 'class',
   purge: [
     './src/**/*.html',
     './src/**/*.vue',

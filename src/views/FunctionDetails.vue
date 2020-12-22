@@ -174,7 +174,7 @@ export default class FunctionDetails extends Vue {
   }
 
   get dataLink (): string {
-    var lnk = ''
+    let lnk = ''
 
     lnk += this.$route.params.baseName.toLowerCase() + '/'
     if (this.$route.params.objectName !== undefined) lnk += this.$route.params.objectName.toLowerCase() + '/'
