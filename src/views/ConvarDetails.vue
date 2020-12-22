@@ -1,6 +1,6 @@
 <template>
 <neo-spinner :loading.sync="isLoading" >
-  <div v-show="!isLoading" v-if="Object.entries(this.content).length !== 0">
+  <div v-if="Object.entries(this.content).length !== 0">
     <neo-param-flag v-if="isInternal">Internal</neo-param-flag>
     <neo-param-flag v-if="isDeprecated">Deprecated</neo-param-flag>
     <neo-param-flag v-if="is2D">2D</neo-param-flag>
