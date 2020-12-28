@@ -15,7 +15,9 @@
     </div>
     <div id="inner" class="flex flex-col md:flex-row flex-grow md:h-full md:overflow-hidden">
       <neo-sidebar class="bg-gray-300 dark:bg-gray-900 border-gray-400 dark:border-black border-r"/>
-      <router-view class="flex-grow p-4 overflow-y-auto"/>
+      <transition name="fade" mode="out-in" appear>
+        <router-view class="flex-grow p-4 overflow-y-auto"/>
+      </transition>
     </div>
   </div>
 </template>
@@ -51,3 +53,12 @@ export default Vue.extend({
   }
 })
 </script>
+<style lang="scss" scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s ease;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+</style>
