@@ -11,8 +11,8 @@
     </span>
     <div slot="content">
       <div v-for="(item, key) in this.elements" :key="key">
-        <neo-sidebar-menu-item-l2 v-if="Array.isArray(item) == false" :defaultOpened="$route.params.objectName === key" :element="item" :objectName="key" :baseName="baseName"></neo-sidebar-menu-item-l2>
-        <neo-sidebar-menu-item-l3 v-else :defaultOpened="$route.params.sectionName === key" :elements="item" :baseName="baseName" :sectionName="key"></neo-sidebar-menu-item-l3>
+        <neo-sidebar-menu-item-l2 v-if="Array.isArray(item) == false" :defaultOpened="isL2ChildOpen(key)" :element="item" :objectName="key" :baseName="baseName"></neo-sidebar-menu-item-l2>
+        <neo-sidebar-menu-item-l3 v-else :defaultOpened="isL3ChildOpen(key)" :elements="item" :baseName="baseName" :sectionName="key"></neo-sidebar-menu-item-l3>
       </div>
     </div>
   </neo-accordion>
@@ -35,9 +35,17 @@ export default class SidebarMenuItemL1 extends Vue {
   @Prop({ default: 'link' }) icon!: string;
   @Prop({ default: 'UNTITLED' }) title!: string;
   @Prop({ default: '' }) baseName!: string;
-  @Prop({ default: () => ({}) }) elements!: Array<Record<string, unknown>>|Record<string, unknown>;
+  @Prop({ default: () => ({}) }) elements!: Record<string, unknown>;
   @Prop({ default: false }) defaultOpened!: boolean;
 
   opened = this.defaultOpened
+
+  isL3ChildOpen (sectionName: string): boolean {
+    return this.defaultOpened && this.$route.params.sectionName === sectionName
+  }
+
+  isL2ChildOpen (objectName: string): boolean {
+    return this.defaultOpened && this.$route.params.objectName === objectName
+  }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <neo-accordion :title="objectName" :opened.sync="opened">
     <div slot="content">
-        <neo-sidebar-menu-item-l3 v-for="(section, name) in element.sections" :key="name" :defaultOpened="$route.params.sectionName === name" :elements="section.function" :objectName="objectName" :sectionName="name" :baseName="baseName"></neo-sidebar-menu-item-l3>
+        <neo-sidebar-menu-item-l3 v-for="(section, name) in element.sections" :key="name" :defaultOpened="isChildOpen(name)" :elements="section.function" :objectName="objectName" :sectionName="name" :baseName="baseName"></neo-sidebar-menu-item-l3>
     </div>
   </neo-accordion>
 </template>
@@ -26,5 +26,9 @@ export default class SidebarMenuItemL2 extends Vue {
   @Prop({ default: false }) defaultOpened!: boolean;
 
   opened = this.defaultOpened
+
+  isChildOpen (sectionName: string): boolean {
+    return this.defaultOpened && this.$route.params.sectionName === sectionName
+  }
 }
 </script>
