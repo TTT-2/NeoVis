@@ -33,6 +33,7 @@ export default class SidebarMenuItemL3 extends Vue {
   showSectionDetails (): void {
     this.$router.push(this.link).catch(failure => {
       if (!VueRouter.isNavigationFailure(failure, VueRouter.NavigationFailureType.duplicated)) {
+        // eslint-disable-next-line
         console.error(failure)
       }
     })
