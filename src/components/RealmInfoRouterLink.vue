@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="link" class="inline-block mr-2">
+  <router-link :to="link" class="inline-block mr-2 whitespace-nowrap">
     <neo-realm-indicator :realm="realm"></neo-realm-indicator>
     <slot></slot>
   </router-link>
