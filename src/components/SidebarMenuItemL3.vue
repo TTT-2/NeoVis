@@ -1,5 +1,6 @@
 <template>
-  <neo-accordion :title="sectionName" :opened.sync="opened">
+  <neo-accordion :opened.sync="opened">
+    <span slot="title" @click="showSectionDetails">{{ sectionName }}</span>
     <div slot="content">
       <div v-for="(item, index) in elements" :key="index">
         <neo-realm-info-router-link :realm="item.realm" :base="baseName" :section="sectionName" :object="objectName" :element="item.name">{{ item.name }}</neo-realm-info-router-link>
@@ -12,6 +13,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 import NeoAccordion from '@/components/NavAccordion.vue'
 import NeoRealmInfoRouterLink from '@/components/RealmInfoRouterLink.vue'
+import VueRouter from 'vue-router'
 
 @Component({
   components: {
@@ -27,5 +29,19 @@ export default class SidebarMenuItemL3 extends Vue {
   @Prop({ default: false }) defaultOpened!: boolean;
 
   opened = this.defaultOpened
+
+  showSectionDetails (): void {
+    this.$router.push(this.link).catch(failure => {
+      if (!VueRouter.isNavigationFailure(failure, VueRouter.NavigationFailureType.duplicated)) {
+        console.error(failure)
+      }
+    })
+  }
+
+  get link (): string {
+    const lnk = '/' + this.baseName + '/' + this.objectName + '/' + this.sectionName
+
+    return lnk
+  }
 }
 </script>
