@@ -28,13 +28,19 @@ import NeoMenuItemL1 from '@/components/SidebarMenuItemL1.vue'
 export default class Sidebar extends Vue {
   @Prop({ default: '' }) private query!: string;
 
-  content = {}
-  isLoading = true
+  content: {
+    module: unknown
+    class: unknown
+    hook: unknown
+    createconvar: unknown
+  } = {
+    module: null,
+    class: null,
+    hook: null,
+    createconvar: null
+  }
 
-  moduleOpened = false
-  classOpened = false
-  hookOpened = false
-  convarOpened = false
+  isLoading = true
 
   created (): void {
     this.isLoading = true
@@ -42,8 +48,6 @@ export default class Sidebar extends Vue {
     axios.get('/data/overview.json')
       .then(response => {
         this.content = Object.freeze(response.data)
-
-        this.defaultExpand()
       })
       .catch(reason => {
         this.$notify({
@@ -57,11 +61,20 @@ export default class Sidebar extends Vue {
       })
   }
 
-  defaultExpand (): void {
-    this.moduleOpened = this.$route.params.baseName === 'module'
-    this.classOpened = this.$route.params.baseName === 'class'
-    this.hookOpened = this.$route.params.baseName === 'hook'
-    this.convarOpened = this.$route.params.baseName === 'createconvar'
+  get moduleOpened (): boolean {
+    return this.$route.params.baseName === 'module'
+  }
+
+  get classOpened (): boolean {
+    return this.$route.params.baseName === 'class'
+  }
+
+  get hookOpened (): boolean {
+    return this.$route.params.baseName === 'hook'
+  }
+
+  get convarOpened (): boolean {
+    return this.$route.params.baseName === 'createconvar'
   }
 }
 </script>

@@ -22,7 +22,7 @@ import VueRouter from 'vue-router'
   }
 })
 export default class SidebarMenuItemL2 extends Vue {
-  @Prop({ default: () => ({}) }) element!: Record<string, unknown>;
+  @Prop({ default: () => ({}) }) element!: Record<string, { sections: { function: unknown } }>;
   @Prop({ default: '' }) objectName!: string;
   @Prop({ default: '' }) baseName!: string;
   @Prop({ default: false }) defaultOpened!: boolean;

@@ -25,7 +25,7 @@ export default class SidebarMenuItemL3 extends Vue {
   @Prop({ default: '' }) sectionName!: string;
   @Prop({ default: '' }) objectName!: string;
   @Prop({ default: '' }) baseName!: string;
-  @Prop({ default: () => ({}) }) elements!: Record<string, unknown>;
+  @Prop({ default: () => ({}) }) elements!: Record<string, { realm: string, name: string }>;
   @Prop({ default: false }) defaultOpened!: boolean;
 
   opened = this.defaultOpened
