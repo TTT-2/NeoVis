@@ -9,7 +9,7 @@
         </router-link>
       </div>
       <button @click="toggleTheme()" class="mx-2 hover:text-gray-700 dark:hover:text-gray-500">
-        <font-awesome-icon class="dark:hidden" icon="moon" size="2x" />
+        <font-awesome-icon class="inline dark:hidden" icon="moon" size="2x" />
         <font-awesome-icon class="hidden dark:inline" icon="sun" size="2x" />
       </button>
     </div>
